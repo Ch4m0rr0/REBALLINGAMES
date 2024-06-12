@@ -1,0 +1,75 @@
+﻿body {
+    background-color: #87CEFA; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.navbar-custom {
+    background-color: #000000; 
+    color: #ffffff;
+}
+
+    .navbar-custom .navbar-brand,
+    .navbar-custom .nav-link {
+        color: #ffffff !important;
+        font-weight: 500;
+    }
+
+    .navbar-custom .navbar-toggler {
+        border-color: rgb(9, 154, 131);
+    }
+
+    .navbar-custom .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%2855, 55, 55, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+
+.footer-custom {
+    background-color: #343a40;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.nav-link:hover {
+    color: #000000 !important;
+    background-color: #ffffff !important; 
+    border-radius: 5px;
+}
+
+.hero-section {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+    .hero-section .cart-img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .hero-section .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+        .hero-section .hero-text h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        .hero-section .hero-text p {
+            font-size: 1.5rem;
+        }
+
+.section {
+    padding-top: 60px;
+    margin-top: -60px;
+}

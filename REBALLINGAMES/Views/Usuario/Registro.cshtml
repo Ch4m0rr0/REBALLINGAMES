@@ -1,0 +1,68 @@
+﻿@model CapaModelo.Usuario
+@{
+    ViewData["Title"] = "Registro";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - REBALLINGAMES</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/sweetalert2.css" />
+    <link rel="stylesheet" href="~/css/Login.css" />
+</head>
+<body>
+
+    <div class="card">
+        <div class="card-body">
+            <form id="formRegistro">
+                <img src="~/Assets/images/2.png" alt="Logo" class="custom-logo">
+                <div class="mb-3">
+                    <label for="registroNombre_Usuario" class="form-label">Nombre de Usuario</label>
+                    <input id="registroNombre_Usuario" name="Nombre_Usuario" class="form-control" required />
+                </div>
+                <div class="mb-3">
+                    <label for="registroClave" class="form-label">Contraseña</label>
+                    <input id="registroClave" name="clave" type="password" class="form-control" required />
+                </div>
+                <button type="button" class="btn btn-primary" onclick="registro()">Registrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="~/js/sweetalert2.all.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function registro() {
+            var usuario = {
+                Nombre_Usuario: $("#registroNombre_Usuario").val(),
+                clave: $("#registroClave").val()
+            };
+
+            $.ajax({
+                url: '@Url.Action("Registro", "Usuario")',
+                type: 'POST',
+                data: usuario,
+                success: function (response) {
+                    if (response.resultado) {
+                        Swal.fire("¡Registro exitoso!", "", "success");
+                        setTimeout(function () {
+                            window.location.href = '@Url.Action("Index", "Home")';
+                        }, 2000);
+                    } else {
+                        Swal.fire("Error", response.mensaje, "error");
+                    }
+                },
+                error: function () {
+                    Swal.fire("Error", "Error al procesar la solicitud.", "error");
+                }
+            });
+        }
+    </script>
+</body>
+</html>
